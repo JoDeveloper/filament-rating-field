@@ -2,6 +2,10 @@
 
 All notable changes to `filament-radio-button-field` will be documented in this file.
 
+## v4.0.0 - 2025-11-05
+
+**Full Changelog**: https://github.com/suleymanozev/filament-radio-button-field/compare/v3.0.0...v4.0.0
+
 ## v2.0.0 - 2023-02-28
 
 ### What's Changed
