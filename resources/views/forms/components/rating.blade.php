@@ -85,7 +85,7 @@
                                 <div class="block text-center">
                                             <div class="text-sm font-medium pointer-events-none"
                                             @class([
-                                                'text-sm font-medium pointer-events-none',
+                                                'text-sm font-medium pointer-events-none w-8 h-8 text-center',
                                                 'bg-gray-500 text-white' => ! $hasColor,
                                               ])
                                               style="background-color: {{ $optionColor }};"
