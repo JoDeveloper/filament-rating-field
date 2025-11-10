@@ -29,7 +29,7 @@
         :two-xl="$getColumns('2xl')"
         :is-grid="! $isInline"
         :attributes="$attributes->merge($getExtraAttributes())->class([
-            'filament-forms-rating-component',
+            'filament-forms-rating-component gap-1',
             'flex flex-wrap' => $isInline,
         ])"
     >
