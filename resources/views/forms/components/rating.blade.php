@@ -82,7 +82,7 @@
                                     ])>
                                         <x-filament::icon
                                               :icon="$iconHtml"
-                                              class="w-8 h-8"
+                                              class="comm:w-4 comm:h-4 comm:text-gray-700 comm:dark:text-gray-300"
                                           />
                                     </div>
                                     @if ($showLabel)
@@ -115,28 +115,12 @@
                                 <div @class([
                                     'w-5 h-5 rounded-full border-2 flex items-center justify-center',
                                     'border-gray-300' => ! $errors->has($getStatePath()) && ! $hasColor,
+                                    'border-' . $optionColor . '-500' => $hasColor && ! $errors->has($getStatePath()),
                                     'border-danger-500' => $errors->has($getStatePath()),
-                                    @if($hasColor && str_starts_with($optionColor, '#'))
-                                        'border-gray-300',
-                                    @else
-                                        'border-' . $optionColor . '-500' => $hasColor && ! $errors->has($getStatePath()),
-                                    @endif
-                                    @if($hasColor && str_starts_with($optionColor, '#'))
-                                        'peer-checked:bg-gray-500 peer-checked:border-gray-500',
-                                    @else
-                                        'peer-checked:bg-' . $optionColor . '-500 peer-checked:border-' . $optionColor . '-500' => $hasColor,
-                                    @endif
+                                    'peer-checked:bg-' . $optionColor . '-500 peer-checked:border-' . $optionColor . '-500' => $hasColor,
                                     'peer-checked:bg-blue-500 peer-checked:border-blue-500' => ! $hasColor,
                                     'peer-checked:border-danger-500 peer-checked:bg-danger-500' => $errors->has($getStatePath()),
                                 ])>
-                                    <div @class([
-                                        'w-2 h-2 bg-white rounded-full',
-                                        @if($hasColor && str_starts_with($optionColor, '#'))
-                                            'bg-white',
-                                        @else
-                                            'bg-' . $optionColor . '-500' => $hasColor,
-                                        @endif
-                                    ])"></div>
                                     <div class="w-2 h-2 bg-white rounded-full opacity-0 peer-checked:opacity-100 transition-opacity duration-200"></div>
                                 </div>
                             </div>
