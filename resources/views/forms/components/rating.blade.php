@@ -79,9 +79,9 @@
                                               :icon="$iconHtml"
                                               @class([
                                                 'w-6 h-6',
-                                                'text-' . $optionColor . '-500 text-black' => $hasColor,
                                                 'bg-gray-500 text-white' => ! $hasColor,
                                               ])
+                                              style="background-color: {{ $optionColor }};"
                                           />
                                     </div>
                                     @if ($showLabel && !$hasIcon)
