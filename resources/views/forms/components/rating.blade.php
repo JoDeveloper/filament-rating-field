@@ -95,7 +95,7 @@
                                     @endif
                                 </div>
                             @else
-                                <div class="block w-full text-center">
+                                <div class="flex items-center space-x-2">
                                      <div class="text-sm font-medium pointer-events-none"
                                             @class([
                                                 'text-sm font-medium pointer-events-none',
