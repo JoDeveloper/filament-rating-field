@@ -83,7 +83,7 @@
                                         @if($hasIcon && str_starts_with($iconHtml, '<svg'))
                                             {!! $iconHtml !!}
                                         @else
-                                            <x-blade-icon :name="$iconHtml" class="w-4 h-4" />
+                                          @svg($iconHtml, ['class' => 'w-4 h-4'])
                                         @endif
                                     </div>
                                     @if ($showLabel)
