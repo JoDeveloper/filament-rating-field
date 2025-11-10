@@ -80,7 +80,11 @@
                                         'bg-' . $optionColor . '-500 text-white' => $hasColor,
                                         'bg-gray-500 text-white' => ! $hasColor,
                                     ])>
-                                        {!! $iconHtml !!}
+                                        @if($hasIcon && str_starts_with($iconHtml, '<svg'))
+                                            {!! $iconHtml !!}
+                                        @else
+                                            <x-blade-icon :name="$iconHtml" class="w-4 h-4" />
+                                        @endif
                                     </div>
                                     @if ($showLabel)
                                         <div class="block">
