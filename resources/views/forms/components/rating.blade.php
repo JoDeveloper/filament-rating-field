@@ -64,7 +64,7 @@
                         @endphp
                         
                         <div @class([
-                            'font-medium flex justify-between items-center p-1.5 peer-checked:border-2',
+                            'font-medium flex justify-between items-center p-2 peer-checked:border-2',
                             'text-gray-700 border-gray-200' => ! $errors->has($getStatePath()) && ! $hasColor,
                             'dark:text-gray-200 dark:border-gray-700' => (! $errors->has($getStatePath())) && ! $hasColor && config('forms.dark_mode'),
                             'text-danger-600 border-danger-200' => $errors->has($getStatePath()),
