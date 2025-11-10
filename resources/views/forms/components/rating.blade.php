@@ -95,10 +95,16 @@
                                     @endif
                                 </div>
                             @else
-                                <div class="block w-full">
-                                    <div class="text-sm font-medium pointer-events-none">
-                                        {{ $label }}
-                                    </div>
+                                <div class="block w-full text-center">
+                                     <div class="text-sm font-medium pointer-events-none"
+                                            @class([
+                                                'text-sm font-medium pointer-events-none',
+                                                'bg-gray-500 text-white' => ! $hasColor,
+                                              ])
+                                              style="background-color: {{ $optionColor }};"
+                                            >
+                                                {{ $label }}
+                                            </div>
                                 </div>
                             @endif
                           
