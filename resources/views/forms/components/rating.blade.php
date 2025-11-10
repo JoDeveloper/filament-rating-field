@@ -57,11 +57,11 @@
                         ]) }}
                         {!! ($isDisabled || $isOptionDisabled($value, $label)) ? 'disabled' : null !!}
                         />
-                        
+                        @debug($colors,$value)
                         @php
                             $hasIcon = isset($icons[$value]);
                             $iconHtml = $hasIcon ? $icons[$value] : null;
-                            $optionColor = $getColorForOption($value);
+                            $optionColor = $colors($value);
                             $hasColor = !empty($optionColor);
                         @endphp
                         
