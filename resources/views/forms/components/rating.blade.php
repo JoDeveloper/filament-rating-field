@@ -70,8 +70,6 @@
                             'text-gray-700 border-gray-200' => ! $errors->has($getStatePath()) && ! $hasColor,
                             'dark:text-gray-200 dark:border-gray-700' => (! $errors->has($getStatePath())) && ! $hasColor && config('forms.dark_mode'),
                             'text-danger-600 border-danger-200' => $errors->has($getStatePath()),
-                            'border-' . $optionColor . '-500 text-' . $optionColor . '-600 bg-' . $optionColor . '-50 peer-checked:bg-' . $optionColor . '-100 peer-checked:border-' . $optionColor . '-600' => $hasColor && ! $errors->has($getStatePath()),
-                            'dark:bg-' . $optionColor . '-900 dark:text-' . $optionColor . '-300 dark:border-' . $optionColor . '-700 dark:peer-checked:bg-' . $optionColor . '-800' => $hasColor && ! $errors->has($getStatePath()) && config('forms.dark_mode'),
                         ])>
                             @if ($hasIcon && $iconHtml)
                                 <div class="flex items-center space-x-2">
@@ -92,11 +90,6 @@
                                             <div class="text-sm font-medium pointer-events-none">
                                                 {{ $label }}
                                             </div>
-                                            @if ($description = $getDescription($value))
-                                                <div class="text-xs opacity-75">
-                                                    {{ $description }}
-                                                </div>
-                                            @endif
                                         </div>
                                     @endif
                                 </div>
@@ -105,27 +98,9 @@
                                     <div class="text-sm font-medium pointer-events-none">
                                         {{ $label }}
                                     </div>
-                                    @if ($description = $getDescription($value))
-                                        <div class="text-xs opacity-75">
-                                            {{ $description }}
-                                        </div>
-                                    @endif
                                 </div>
                             @endif
-                            
-                            <div class="flex-shrink-0 ml-2">
-                                <div @class([
-                                    'w-5 h-5 rounded-full border-2 flex items-center justify-center',
-                                    'border-gray-300' => ! $errors->has($getStatePath()) && ! $hasColor,
-                                    'border-' . $optionColor . '-500' => $hasColor && ! $errors->has($getStatePath()),
-                                    'border-danger-500' => $errors->has($getStatePath()),
-                                    'peer-checked:bg-' . $optionColor . '-500 peer-checked:border-' . $optionColor . '-500' => $hasColor,
-                                    'peer-checked:bg-blue-500 peer-checked:border-blue-500' => ! $hasColor,
-                                    'peer-checked:border-danger-500 peer-checked:bg-danger-500' => $errors->has($getStatePath()),
-                                ])>
-                                    <div class="w-2 h-2 bg-white rounded-full opacity-0 peer-checked:opacity-100 transition-opacity duration-200"></div>
-                                </div>
-                            </div>
+                          
                         </div>
                     </label>
                 </div>
