@@ -138,4 +138,14 @@ class Rating extends Radio
     {
         return $this->evaluate($this->inline);
     }
+
+    /**
+     * Check if a specific option is selected.
+     */
+    public function isSelected(string $value): bool
+    {
+        return $this->evaluate(function () use ($value) {
+            return $this->getState() == $value;
+        });
+    }
 }

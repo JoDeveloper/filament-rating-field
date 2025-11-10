@@ -40,7 +40,10 @@
         @foreach ($getOptions() as $value => $label)
             <div >
                 <div class="flex items-center">
-                    <label for="{{ $getId() }}-{{ $value }}" class="w-full cursor-pointer bg-white rounded-lg border  overflow-hidden dark:bg-gray-800 transition-shadow duration-200">
+                    <label for="{{ $getId() }}-{{ $value }}" @class([
+                        'w-full cursor-pointer bg-white rounded-lg border overflow-hidden dark:bg-gray-800 transition-shadow duration-200',
+                        'ring-2 ring-green-500 ring-offset-2' => $isSelected($value),
+                    ])>
                         <input
                             name="{{ $getId() }}"
                             id="{{ $getId() }}-{{ $value }}"
@@ -61,7 +64,7 @@
                         @endphp
                         
                         <div @class([
-                            'font-medium flex justify-between items-center p-3 peer-checked:border-2',
+                            'font-medium flex justify-between items-center p-1.5 peer-checked:border-2',
                             'text-gray-700 border-gray-200' => ! $errors->has($getStatePath()) && ! $hasColor,
                             'dark:text-gray-200 dark:border-gray-700' => (! $errors->has($getStatePath())) && ! $hasColor && config('forms.dark_mode'),
                             'text-danger-600 border-danger-200' => $errors->has($getStatePath()),
