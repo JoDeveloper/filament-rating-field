@@ -78,7 +78,7 @@
                                         <x-filament::icon
                                               :icon="$iconHtml"
                                               @class([
-                                                'w-6 h-6',
+                                                'w-6 h-6 text-white',
                                                 'bg-gray-500 text-white' => ! $hasColor,
                                               ])
                                               style="background-color: {{ $optionColor }};"
