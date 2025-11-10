@@ -44,7 +44,7 @@
                 'gap-2' => $isInline,
             ])>
                 <div class="flex items-center">
-                    <label for="{{ $getId() }}-{{ $value }}" class="w-full cursor-pointer bg-white rounded-lg border shadow-sm overflow-hidden dark:bg-gray-800 hover:shadow-md transition-shadow duration-200">
+                    <label for="{{ $getId() }}-{{ $value }}" class="w-full cursor-pointer bg-white rounded-lg border  overflow-hidden dark:bg-gray-800 transition-shadow duration-200">
                         <input
                             name="{{ $getId() }}"
                             id="{{ $getId() }}-{{ $value }}"
@@ -66,7 +66,7 @@
                         @endphp
                         
                         <div @class([
-                            'font-medium flex justify-between items-center p-3 peer-checked:border-2 peer-checked:shadow-md',
+                            'font-medium flex justify-between items-center p-3 peer-checked:border-2',
                             'text-gray-700 border-gray-200' => ! $errors->has($getStatePath()) && ! $hasColor,
                             'dark:text-gray-200 dark:border-gray-700' => (! $errors->has($getStatePath())) && ! $hasColor && config('forms.dark_mode'),
                             'text-danger-600 border-danger-200' => $errors->has($getStatePath()),
@@ -83,7 +83,10 @@
                                         @if($hasIcon && str_starts_with($iconHtml, '<svg'))
                                             {!! $iconHtml !!}
                                         @else
-                                          @svg($iconHtml, ['class' => 'w-4 h-4'])
+                                        <x-filament::icon
+                                              :icon="$iconHtml"
+                                              class="w-8 h-8"
+                                          />
                                         @endif
                                     </div>
                                     @if ($showLabel)
@@ -116,12 +119,28 @@
                                 <div @class([
                                     'w-5 h-5 rounded-full border-2 flex items-center justify-center',
                                     'border-gray-300' => ! $errors->has($getStatePath()) && ! $hasColor,
-                                    'border-' . $optionColor . '-500' => $hasColor && ! $errors->has($getStatePath()),
                                     'border-danger-500' => $errors->has($getStatePath()),
-                                    'peer-checked:bg-' . $optionColor . '-500 peer-checked:border-' . $optionColor . '-500' => $hasColor,
+                                    @if($hasColor && str_starts_with($optionColor, '#'))
+                                        'border-gray-300',
+                                    @else
+                                        'border-' . $optionColor . '-500' => $hasColor && ! $errors->has($getStatePath()),
+                                    @endif
+                                    @if($hasColor && str_starts_with($optionColor, '#'))
+                                        'peer-checked:bg-gray-500 peer-checked:border-gray-500',
+                                    @else
+                                        'peer-checked:bg-' . $optionColor . '-500 peer-checked:border-' . $optionColor . '-500' => $hasColor,
+                                    @endif
                                     'peer-checked:bg-blue-500 peer-checked:border-blue-500' => ! $hasColor,
                                     'peer-checked:border-danger-500 peer-checked:bg-danger-500' => $errors->has($getStatePath()),
                                 ])>
+                                    <div @class([
+                                        'w-2 h-2 bg-white rounded-full',
+                                        @if($hasColor && str_starts_with($optionColor, '#'))
+                                            'bg-white',
+                                        @else
+                                            'bg-' . $optionColor . '-500' => $hasColor,
+                                        @endif
+                                    ])"></div>
                                     <div class="w-2 h-2 bg-white rounded-full opacity-0 peer-checked:opacity-100 transition-opacity duration-200"></div>
                                 </div>
                             </div>

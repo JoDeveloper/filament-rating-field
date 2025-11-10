@@ -64,11 +64,11 @@ Rating::make('rating')
         '5' => 'heroicon-m-star',
     ])
     ->colors([
-        '1' => 'red',
-        '2' => 'orange',
-        '3' => 'yellow',
-        '4' => 'lime',
-        '5' => 'green',
+        '1' => '#ef4444',
+        '2' => '#f97316',
+        '3' => '#eab308',
+        '4' => '#84cc16',
+        '5' => '#22c55e',
     ])
     ->showLabel(true)
     ->inline(true);
@@ -91,11 +91,11 @@ Rating::make('rating')
         '5' => 'heroicon-m-star',
     ])
     ->colors([
-        '1' => 'red',
-        '2' => 'orange',
-        '3' => 'yellow',
-        '4' => 'lime',
-        '5' => 'green',
+        '1' => '#ef4444',
+        '2' => '#f97316',
+        '3' => '#eab308',
+        '4' => '#84cc16',
+        '5' => '#22c55e',
     ])
     ->showLabel(false)
     ->inline(true);
@@ -118,8 +118,8 @@ Rating::make('rating')
         '5' => 'heroicon-m-star',
     ])
     ->colors([
-        '1' => 'red',
-        '5' => 'green',
+        '1' => '#ef4444',
+        '5' => '#22c55e',
     ])
     ->defaultColor('blue')
     ->showLabel(true)
