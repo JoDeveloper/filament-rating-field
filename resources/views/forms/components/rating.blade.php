@@ -80,14 +80,10 @@
                                         'bg-' . $optionColor . '-500 text-white' => $hasColor,
                                         'bg-gray-500 text-white' => ! $hasColor,
                                     ])>
-                                        @if($hasIcon && str_starts_with($iconHtml, '<svg'))
-                                            {!! $iconHtml !!}
-                                        @else
                                         <x-filament::icon
                                               :icon="$iconHtml"
                                               class="w-8 h-8"
                                           />
-                                        @endif
                                     </div>
                                     @if ($showLabel)
                                         <div class="block">
