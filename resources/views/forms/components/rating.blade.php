@@ -79,7 +79,7 @@
                                               :icon="$iconHtml"
                                               @class([
                                                 'w-6 h-6',
-                                                'bg-' . $optionColor . '-500 text-white' => $hasColor,
+                                                'text-' . $optionColor . '-500 text-black' => $hasColor,
                                                 'bg-gray-500 text-white' => ! $hasColor,
                                               ])
                                           />
