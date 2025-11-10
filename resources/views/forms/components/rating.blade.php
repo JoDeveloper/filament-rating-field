@@ -81,8 +81,14 @@
                                           />
                                     </div>
                                     @if ($showLabel && !$hasIcon)
-                                        <div class="block">
-                                            <div class="text-sm font-medium pointer-events-none">
+                                        <div class="block text-center">
+                                            <div class="text-sm font-medium pointer-events-none"
+                                            @class([
+                                                'text-sm font-medium pointer-events-none',
+                                                'bg-gray-500 text-white' => ! $hasColor,
+                                              ])
+                                              style="background-color: {{ $optionColor }};"
+                                            >
                                                 {{ $label }}
                                             </div>
                                         </div>
