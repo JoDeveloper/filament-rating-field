@@ -1,10 +1,10 @@
 <?php
 
-namespace Suleymanozev\FilamentRadioButtonField\Tests;
+namespace Jodeveloper\FilamentRating\Tests;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Orchestra\Testbench\TestCase as Orchestra;
-use Suleymanozev\FilamentRadioButtonField\FilamentRadioButtonFieldServiceProvider;
+use Jodeveloper\FilamentRating\FilamentRatingServiceProvider;
 
 class TestCase extends Orchestra
 {
@@ -13,14 +13,14 @@ class TestCase extends Orchestra
         parent::setUp();
 
         Factory::guessFactoryNamesUsing(
-            fn (string $modelName) => 'Suleymanozev\\FilamentRadioButtonField\\Database\\Factories\\'.class_basename($modelName).'Factory'
+            fn (string $modelName) => 'Jodeveloper\\FilamentRating\\Database\\Factories\\'.class_basename($modelName).'Factory'
         );
     }
 
     protected function getPackageProviders($app)
     {
         return [
-            FilamentRadioButtonFieldServiceProvider::class,
+            FilamentRatingServiceProvider::class,
         ];
     }
 
@@ -29,7 +29,7 @@ class TestCase extends Orchestra
         config()->set('database.default', 'testing');
 
         /*
-        $migration = include __DIR__.'/../database/migrations/create_filament-radio-button-field_table.php.stub';
+        $migration = include __DIR__.'/../database/migrations/create_filament-rating_table.php.stub';
         $migration->up();
         */
     }

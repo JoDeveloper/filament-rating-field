@@ -1,17 +1,20 @@
 {
-    "name": "suleymanozev/filament-radio-button-field",
-    "description": "The radio button field for the Filament forms",
+    "name": "jodeveloper/filament-rating",
+    "description": "The rating field with icons and colors for the Filament forms",
     "keywords": [
-        "suleymanozev",
+        "jodeveloper",
         "laravel",
-        "filament-radio-button-field"
+        "filament-rating",
+        "rating",
+        "icons",
+        "colors"
     ],
-    "homepage": "https://github.com/suleymanozev/filament-radio-button-field",
+    "homepage": "https://github.com/jodeveloper/filament-rating",
     "license": "MIT",
     "authors": [
         {
-            "name": "Süleyman ÖZEV",
-            "email": "info@suleymanozev.com",
+            "name": "JoDeveloper",
+            "email": "info@jodeveloper.com",
             "role": "Developer"
         }
     ],
@@ -35,13 +38,13 @@
     },
     "autoload": {
         "psr-4": {
-            "Suleymanozev\\FilamentRadioButtonField\\": "src",
-            "Suleymanozev\\FilamentRadioButtonField\\Database\\Factories\\": "database/factories"
+            "Jodeveloper\\FilamentRating\\": "src",
+            "Jodeveloper\\FilamentRating\\Database\\Factories\\": "database/factories"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Suleymanozev\\FilamentRadioButtonField\\Tests\\": "tests"
+            "Jodeveloper\\FilamentRating\\Tests\\": "tests"
         }
     },
     "scripts": {
@@ -60,10 +63,10 @@
     "extra": {
         "laravel": {
             "providers": [
-                "Suleymanozev\\FilamentRadioButtonField\\FilamentRadioButtonFieldServiceProvider"
+                "Jodeveloper\\FilamentRating\\FilamentRatingServiceProvider"
             ],
             "aliases": {
-                "FilamentRadioButtonField": "Suleymanozev\\FilamentRadioButtonField\\Facades\\FilamentRadioButtonField"
+                "FilamentRating": "Jodeveloper\\FilamentRating\\Facades\\FilamentRating"
             }
         }
     },

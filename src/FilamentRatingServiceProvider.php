@@ -1,11 +1,11 @@
 <?php
 
-namespace Suleymanozev\FilamentRadioButtonField;
+namespace Jodeveloper\FilamentRating;
 
 use Spatie\LaravelPackageTools\Package;
 use Spatie\LaravelPackageTools\PackageServiceProvider;
 
-class FilamentRadioButtonFieldServiceProvider extends PackageServiceProvider
+class FilamentRatingServiceProvider extends PackageServiceProvider
 {
     public function configurePackage(Package $package): void
     {
@@ -15,7 +15,7 @@ class FilamentRadioButtonFieldServiceProvider extends PackageServiceProvider
          * More info: https://github.com/spatie/laravel-package-tools
          */
         $package
-            ->name('filament-radio-button-field')
+            ->name('filament-rating')
             ->hasViews();
     }
 }

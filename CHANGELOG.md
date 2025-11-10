@@ -1,6 +1,28 @@
 # Changelog
 
-All notable changes to `filament-radio-button-field` will be documented in this file.
+All notable changes to `filament-rating` will be documented in this file.
+
+## v1.0.0 - 2025-11-10
+
+### What's Changed
+
+- Migrated package from `suleymanozev/filament-radio-button-field` to `jodeveloper/filament-rating`
+- Renamed `RadioButton` component to `Rating`
+- Added support for icons with the `icons()` method
+- Added support for colors with the `color()` method
+- Added `showLabel()` method to control label visibility
+- Added `inline()` method to control alignment
+- Updated namespace from `Suleymanozev\FilamentRadioButtonField` to `Jodeveloper\FilamentRating`
+- Updated service provider from `FilamentRadioButtonFieldServiceProvider` to `FilamentRatingServiceProvider`
+- Enhanced blade template to display rating with icons and colors
+- Updated documentation with new usage examples
+
+### Breaking Changes
+
+- Component name changed from `RadioButton` to `Rating`
+- Namespace changed from `Suleymanozev\FilamentRadioButtonField` to `Jodeveloper\FilamentRating`
+- Service provider changed from `FilamentRadioButtonFieldServiceProvider` to `FilamentRatingServiceProvider`
+- View name changed from `filament-radio-button-field::forms.components.radio-button` to `filament-rating::forms.components.rating`
 
 ## v4.1.0 - 2025-11-07
 
