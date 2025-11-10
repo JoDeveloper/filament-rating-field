@@ -30,8 +30,7 @@
         :is-grid="! $isInline"
         :attributes="$attributes->merge($getExtraAttributes())->class([
             'filament-forms-rating-component',
-            'flex flex-wrap gap-3' => $isInline,
-            'gap-2' => ! $isInline,
+            'flex flex-wrap' => $isInline,
         ])"
     >
         @php
@@ -39,10 +38,7 @@
         @endphp
 
         @foreach ($getOptions() as $value => $label)
-            <div @class([
-                'gap-3' => ! $isInline,
-                'gap-2' => $isInline,
-            ])>
+            <div >
                 <div class="flex items-center">
                     <label for="{{ $getId() }}-{{ $value }}" class="w-full cursor-pointer bg-white rounded-lg border  overflow-hidden dark:bg-gray-800 transition-shadow duration-200">
                         <input
