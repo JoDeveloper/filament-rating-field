@@ -77,15 +77,17 @@
                                 <div class="flex items-center space-x-2">
                                     <div @class([
                                         'flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-full',
-                                        'bg-' . $optionColor . '-500 text-white' => $hasColor,
-                                        'bg-gray-500 text-white' => ! $hasColor,
                                     ])>
                                         <x-filament::icon
                                               :icon="$iconHtml"
-                                              class="comm:w-4 comm:h-4 comm:text-gray-700 comm:dark:text-gray-300"
+                                              @class([
+                                                'w-6 h-6',
+                                                'bg-' . $optionColor . '-500 text-white' => $hasColor,
+                                                'bg-gray-500 text-white' => ! $hasColor,
+                                              ])
                                           />
                                     </div>
-                                    @if ($showLabel)
+                                    @if ($showLabel && !$hasIcon)
                                         <div class="block">
                                             <div class="text-sm font-medium pointer-events-none">
                                                 {{ $label }}
