@@ -61,7 +61,7 @@
                         @php
                             $hasIcon = isset($icons[$value]);
                             $iconHtml = $hasIcon ? $icons[$value] : null;
-                            $optionColor = $colors($value);
+                            $optionColor = $colors[$value] ?? $defaultColor;
                             $hasColor = !empty($optionColor);
                         @endphp
                         
