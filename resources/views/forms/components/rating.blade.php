@@ -57,7 +57,6 @@
                         ]) }}
                         {!! ($isDisabled || $isOptionDisabled($value, $label)) ? 'disabled' : null !!}
                         />
-                        @dump($colors,$value)
                         @php
                             $hasIcon = isset($icons[$value]);
                             $iconHtml = $hasIcon ? $icons[$value] : null;
