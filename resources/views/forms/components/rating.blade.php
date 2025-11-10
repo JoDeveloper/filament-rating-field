@@ -76,6 +76,7 @@
                                     ])>
                                         <x-filament::icon
                                               :icon="$iconHtml"
+                                              wire:loading.attr="disabled"
                                               @class([
                                                 'w-8 h-8 text-white',
                                                 'bg-gray-500 text-white' => ! $hasColor,
