@@ -93,7 +93,7 @@
                                                 'flex font-bold font-medium pointer-events-none w-8 h-8 items-center justify-center',
                                                 'bg-gray-500 text-white' => ! $hasColor,
                                               ])
-                                              style="background-color: {{ $optionColor }};"
+                                              style="background-color: {{ $optionColor }};color:{{$textColor}}"
                                             >
                                                 {{ $label }}
                                             </div>
