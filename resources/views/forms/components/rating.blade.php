@@ -1,3 +1,4 @@
+@php use Jodeveloper\FilamentRating\Utils\ColorUtils; @endphp
 <x-dynamic-component
     :component="$getFieldWrapperView()"
     :id="$getId()"
@@ -60,6 +61,7 @@
                             $hasIcon = isset($icons[$value]);
                             $iconHtml = $hasIcon ? $icons[$value] : null;
                             $optionColor = $colors[$value] ?? $defaultColor;
+                            $textColor = app(ColorUtils::class)->getOptimalTextColor($optionColor);
                             $hasColor = !empty($optionColor);
                         @endphp
                         
@@ -77,10 +79,10 @@
                                         <x-filament::icon
                                               :icon="$iconHtml"
                                               @class([
-                                                'w-8 h-8 text-white',
-                                                'bg-gray-500 text-white' => ! $hasColor,
+                                                'w-8 h-8',
+                                                'bg-gray-500' => ! $hasColor,
                                               ])
-                                              style="background-color: {{ $optionColor }};"
+                                              style="background-color: {{ $optionColor }};color:{{$textColor}}"
                                           />
                                     </div>
                                 </div>
