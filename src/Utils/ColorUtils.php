@@ -13,8 +13,12 @@ class ColorUtils
     /**
      * Determine best text color (black or white) based on luminance
      */
-    public static function getOptimalTextColor(string $backgroundColor): string
+    public static function getOptimalTextColor(string|null $backgroundColor): string
     {
+      if(is_null($backgroundColor)) {
+          return '#000000';
+        }
+
         $rgb = self::hexToRgbOrFail($backgroundColor);
         $luminance = self::calculateLuminance($rgb);
 
