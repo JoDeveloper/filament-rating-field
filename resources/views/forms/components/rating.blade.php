@@ -38,73 +38,75 @@
             $isDisabled = $isDisabled();
         @endphp
 
-        @foreach ($getOptions() as $value => $label)
-            <div >
-                <div class="flex items-center">
-                    <label for="{{ $getId() }}-{{ $value }}" @class([
+        <div class="flex gap-2">
+            @foreach ($getOptions() as $value => $label)
+                <div>
+                    <div class="flex items-center">
+                        <label for="{{ $getId() }}-{{ $value }}" @class([
                         'w-full cursor-pointer bg-white rounded-lg border overflow-hidden dark:bg-gray-800 transition-shadow duration-200',
                         'ring-2 ring-green-500 ring-offset-2' => $isSelected($value),
                     ])>
-                        <input
-                            name="{{ $getId() }}"
-                            id="{{ $getId() }}-{{ $value }}"
-                            type="radio"
-                            value="{{ $value }}"
-                            dusk="filament.forms.{{ $getStatePath() }}"
-                        {{ $applyStateBindingModifiers('wire:model') }}="{{ $getStatePath() }}"
-                        {{ $getExtraInputAttributeBag()->class([
-                            'hidden peer',
-                        ]) }}
-                        {!! ($isDisabled || $isOptionDisabled($value, $label)) ? 'disabled' : null !!}
-                        />
-                        @php
-                            $hasIcon = isset($icons[$value]);
-                            $iconHtml = $hasIcon ? $icons[$value] : null;
-                            $optionColor = $colors[$value] ?? $defaultColor;
-                            $textColor = app(ColorUtils::class)->getOptimalTextColor($optionColor);
-                            $hasColor = !empty($optionColor);
-                        @endphp
-                        
-                        <div @class([
+                            <input
+                                    name="{{ $getId() }}"
+                                    id="{{ $getId() }}-{{ $value }}"
+                                    type="radio"
+                                    value="{{ $value }}"
+                                    dusk="filament.forms.{{ $getStatePath() }}"
+                            {{ $applyStateBindingModifiers('wire:model') }}="{{ $getStatePath() }}"
+                            {{ $getExtraInputAttributeBag()->class([
+                                'hidden peer',
+                            ]) }}
+                            {!! ($isDisabled || $isOptionDisabled($value, $label)) ? 'disabled' : null !!}
+                            />
+                            @php
+                                $hasIcon = isset($icons[$value]);
+                                $iconHtml = $hasIcon ? $icons[$value] : null;
+                                $optionColor = $colors[$value] ?? $defaultColor;
+                                $textColor = app(ColorUtils::class)->getOptimalTextColor($optionColor);
+                                $hasColor = !empty($optionColor);
+                            @endphp
+
+                            <div @class([
                             'font-medium flex justify-between items-center p-2 peer-checked:border-2',
                             'text-gray-700 border-gray-200' => ! $errors->has($getStatePath()) && ! $hasColor,
                             'dark:text-gray-200 dark:border-gray-700' => (! $errors->has($getStatePath())) && ! $hasColor && config('forms.dark_mode'),
                             'text-danger-600 border-danger-200' => $errors->has($getStatePath()),
                         ])>
-                            @if ($hasIcon && $iconHtml)
-                                <div class="flex items-center space-x-2">
-                                    <div @class([
+                                @if ($hasIcon && $iconHtml)
+                                    <div class="flex items-center space-x-2">
+                                        <div @class([
                                         'flex-shrink-0 w-8 h-8 flex items-center justify-center rounded-full',
                                     ])>
-                                        <x-filament::icon
-                                              :icon="$iconHtml"
-                                              @class([
-                                                'w-8 h-8',
-                                                'bg-gray-500' => ! $hasColor,
-                                              ])
-                                              style="background-color: {{ $optionColor }};color:{{$textColor}}"
-                                          />
-                                    </div>
-                                </div>
-                            @elseif ($showLabel && !$hasIcon)
-                                <div class="block text-center">
-                                            <div
-                                            @class([
-                                                'flex font-bold font-medium pointer-events-none w-8 h-8 items-center justify-center',
-                                                'bg-gray-500 text-white' => ! $hasColor,
-                                              ])
-                                              style="background-color: {{ $optionColor }};color:{{$textColor}}"
-                                            >
-                                                {{ $label }}
-                                            </div>
+                                            <x-filament::icon
+                                                    :icon="$iconHtml"
+                                                    @class([
+                                                      'w-8 h-8',
+                                                      'bg-gray-500' => ! $hasColor,
+                                                    ])
+                                                    style="background-color: {{ $optionColor }};color:{{$textColor}}"
+                                            />
                                         </div>
-                            @endif
-                          
-                        </div>
-                    </label>
+                                    </div>
+                                @elseif ($showLabel && !$hasIcon)
+                                    <div class="block text-center">
+                                        <div
+                                                @class([
+                                                    'flex font-bold font-medium pointer-events-none w-8 h-8 items-center justify-center',
+                                                    'bg-gray-500 text-white' => ! $hasColor,
+                                                  ])
+                                                style="background-color: {{ $optionColor }};color:{{$textColor}}"
+                                        >
+                                            {{ $label }}
+                                        </div>
+                                    </div>
+                                @endif
+
+                            </div>
+                        </label>
+                    </div>
                 </div>
-            </div>
-        @endforeach
+            @endforeach
+        </div>
     </x-filament::grid>
     @if ($isInline)
         </x-slot>
